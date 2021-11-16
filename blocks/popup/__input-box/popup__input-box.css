@@ -1,0 +1,14 @@
+.popup__input-box {
+    outline: none;
+    font-size: 14px;
+    line-height: auto;
+    font-weight: 400;
+    margin: 30px 0 0 0;
+    padding: 0 0 13px 0;
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
+.popup__input-box:first-child {
+    margin: 0;
+}

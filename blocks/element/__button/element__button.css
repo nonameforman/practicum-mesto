@@ -1,0 +1,9 @@
+.element__button {
+    cursor: pointer;
+    height: 19px;
+    width: 22px;
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+}

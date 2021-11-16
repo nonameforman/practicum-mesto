@@ -22,7 +22,7 @@
                     <img class="profile__avatar" src="./images/avatar.png" alt="Аватар.">
                     <div class="profile__info">
                         <h1 class="profile__name">
-                             Многобукв Многобуквович
+                            Жак-Ив Кусто
                         </h1>
                         <button class="profile__edit-button button-hover">
                             <img class="profile__edit-button-pic" src="./images/edit-button.svg" alt="Карандаш.">
@@ -36,7 +36,101 @@
                     <img class="profile__add-button-pic" src="./images/add-button.svg" alt="Плюс.">
                 </button>
             </section>
+            <section class="elements">
+                <ul class="elements__container">
+                    <li class="element">
+                        <img class="element__pic" src="./images/element-karachaev.png" alt="Руины собора в Карачаеве.">
+                        <div class="element__describtion">
+                            <h2 class="element__name">
+                                Карачаево-Черкессия
+                            </h2>
+                            <button class="element__button button-hover">
+                                <img class="element__button-pic" src="./images/like-button.svg" alt="Сердце.">
+                            </button>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img class="element__pic" src="./images/element-elbrus.png" alt="Пейзажи Эльбруса.">
+                        <div class="element__describtion">
+                            <h2 class="element__name">
+                                Гора Эльбрус
+                            </h2>
+                            <button class="element__button button-hover">
+                                <img class="element__button-pic" src="./images/like-button.svg" alt="Сердце.">
+                            </button>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img class="element__pic" src="./images/element-dombai.png" alt="Пейзажи Эльбруса.">
+                        <div class="element__describtion">
+                            <h2 class="element__name">
+                                Домбай
+                            </h2>
+                            <button class="element__button button-hover">
+                                <img class="element__button-pic" src="./images/like-button.svg" alt="Сердце.">
+                            </button>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img class="element__pic" src="./images/element-dombai.png" alt="Пейзажи Эльбруса.">
+                        <div class="element__describtion">
+                            <h2 class="element__name">
+                                Домбай
+                            </h2>
+                            <button class="element__button button-hover">
+                                <img class="element__button-pic" src="./images/like-button.svg" alt="Сердце.">
+                            </button>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img class="element__pic" src="./images/element-elbrus.png" alt="Пейзажи Эльбруса.">
+                        <div class="element__describtion">
+                            <h2 class="element__name">
+                                Гора Эльбрус
+                            </h2>
+                            <button class="element__button button-hover">
+                                <img class="element__button-pic" src="./images/like-button.svg" alt="Сердце.">
+                            </button>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img class="element__pic" src="./images/element-karachaev.png" alt="Руины собора в Карачаеве.">
+                        <div class="element__describtion">
+                            <h2 class="element__name">
+                                Карачаевск
+                            </h2>
+                            <button class="element__button button-hover">
+                                <img class="element__button-pic" src="./images/like-button.svg" alt="Сердце.">
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
         </main>
+        <footer class="footer">
+            <div class="footer__container">
+                <p class="footer__copyright">
+                    &copy; 2021 Mesto Russia
+                </p>
+            </div>
+        </footer>
+        <div class="popup">
+            <div class="popup__container">
+                <h2 class="popup__title">
+                    Редактировать профиль
+                </h2>
+                <form class="popup__form" method="post">
+                    <input class="popup__input-box popup__input-box_value_name" type="text" name="name" value="Жак-Ив Кусто">
+                    <input class="popup__input-box popup__input-box_value_about" type="text" name="about" value="Исследователь океана">
+                    <button class="popup__button-save button-hover" type="submit">
+                        Сохранить
+                    </button>
+                  </form>
+            </div>
+            <button class="popup__button-close button-hover">
+                <img class="popup__button-close-pic" src="./images/close-button.svg" alt="Крестик.">
+            </button>
     </div>
+    <script src="./scripts/index.js"></script>
 </body>
 </html>

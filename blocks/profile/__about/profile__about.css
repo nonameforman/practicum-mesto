@@ -3,11 +3,16 @@
     font-size: 18px;
     font-weight: 400;
     line-height: auto;
-    grid-column: span 2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 300px;
 }
 
 @media screen and (max-width: 767px) {
     .profile__about {
         font-size: 14px;
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
     }
 }
