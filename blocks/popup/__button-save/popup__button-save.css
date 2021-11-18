@@ -9,8 +9,9 @@
     border: none;
     margin: 48px 0 37px;
     font-size: 18px;
-    line-height: auto;
+    line-height: 22px;
     font-weight: 400;
+    border-radius: 2px;
 }
 
 @media screen and (max-width: 767px) {
@@ -19,5 +20,6 @@
         height: 46px;
         margin: 45px 0 25px;
         font-size: 14px;
+        line-height: 17px;
     }
 }

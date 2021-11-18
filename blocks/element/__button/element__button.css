@@ -6,4 +6,9 @@
     padding: 0;
     box-shadow: none;
     border: none;
+    box-sizing: border-box;
+    background-image: url(../../../images/like-button.svg);
+    background-size: 22px 19px;
+    background-repeat: no-repeat;
+    background-position: center;
 }

@@ -7,9 +7,14 @@
     height: 50px;
     width: 150px;
     background-color: transparent;
-    border: 1px solid white;
+    border: 2px solid white;
     padding: 0;
     box-shadow: none;
+    box-sizing: border-box;
+    background-image: url(../../../images/add-button.svg);
+    background-size: 22px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 @media screen and (max-width: 934px) {
@@ -20,7 +25,8 @@
 
 @media screen and (max-width: 767px) {
     .profile__add-button {
-        margin: 36px 0 0 0;
+        margin: 33px 0 0 0;
         width: 282px;
+        background-size: 16px;
     }
 }

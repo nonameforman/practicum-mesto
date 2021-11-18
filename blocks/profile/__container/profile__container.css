@@ -1,6 +1,6 @@
 .profile__container {
     margin: 40px 0 0 0;
-    display: inline-flex;
+    display: flex;
     align-items: center;
 }
 

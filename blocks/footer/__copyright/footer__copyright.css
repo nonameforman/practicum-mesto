@@ -2,7 +2,7 @@
     margin: 0;
     font-size: 18px;
     font-weight: 400;
-    line-height: auto;
+    line-height: 22px;
     color: #545454;
 }
 
@@ -15,5 +15,7 @@
 @media screen and (max-width: 600px) {
     .footer__copyright {
         margin: 0 0 0 6.5625%;
+        font-size: 14px;
+        line-height: 17px;
     }
 }

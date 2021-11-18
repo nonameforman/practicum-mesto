@@ -1,0 +1,8 @@
+.element__button_hovered {
+    opacity: 1;
+    transition: opacity 0.2s ease; 
+}
+
+.element__button_hovered:hover {
+    opacity: 0.5;
+}
