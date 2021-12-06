@@ -65,7 +65,7 @@ function getItem(item) {    //добавление новой карточки
         imageFullScreen.src = newImage.src;
         imageFullScreen.alt = newImage.alt;
         imageCapture.textContent = newName.textContent;
-        popupFullPic.classList.add("popup_opened");
+        openPopup(popupFullPic);
     })
 
     return newItem;
@@ -86,28 +86,22 @@ function render() {   //начальный рендер карточек
 
 render();
 
-function openPopupEdit() {    //открытие попапа редактирования
-    popupEdit.classList.add("popup_opened");
-    nameInput.value = nameValue.textContent.trim();
-    aboutInput.value = aboutValue.textContent.trim();
-}
-
-function openPopupAdd() {   //открытие попапа добавления новой карточки
-    popupAdd.classList.add("popup_opened");
+function openPopup(popupElement) {    //открытие попапа
+    popupElement.classList.add("popup_opened");
 }
 
 function closePopup(popupElement) {   //закрытие попапа
     popupElement.classList.remove("popup_opened");
 }
 
-function formSubmitHandler (evt) {    //отправка формы редактирования
+function submitFormEdit (evt) {    //отправка формы редактирования
     evt.preventDefault();
     nameValue.textContent = nameInput.value;
     aboutValue.textContent = aboutInput.value;
     closePopup(popupEdit);
 }
 
-function formAddCard (evt) {    //отправка формы добавления
+function submitFormAdd (evt) {    //отправка формы добавления
     evt.preventDefault();
     const card = getItem({
       name: mestoInput.value,
@@ -119,10 +113,14 @@ function formAddCard (evt) {    //отправка формы добавлени
     closePopup(popupAdd);
 }
 
-editButton.addEventListener("click", openPopupEdit);
+editButton.addEventListener("click", () => {
+    nameInput.value = nameValue.textContent.trim();
+    aboutInput.value = aboutValue.textContent.trim();
+    openPopup(popupEdit);
+});
+addButton.addEventListener("click", () => openPopup(popupAdd));
+formEditElement.addEventListener("submit", submitFormEdit);
+formAddElement.addEventListener("submit", submitFormAdd);
 closeButtonEdit.addEventListener("click", () => closePopup(popupEdit));
-formEditElement.addEventListener("submit", formSubmitHandler);
-addButton.addEventListener("click", openPopupAdd);
 closeButtonAdd.addEventListener("click", () => closePopup(popupAdd));
-formAddElement.addEventListener("submit", formAddCard);
 closeButtonFullPic.addEventListener("click", () => closePopup(popupFullPic));
