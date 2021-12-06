@@ -96,14 +96,11 @@ function openPopupAdd() {   //открытие попапа добавления
 //   popupEl.classList.remove("popup_opened");
 // }
 
-
-// function closePopup() {   //закрытие попапа
-//     if (popupEdit.classList.contains("popup_opened")) {
-//       popupEdit.classList.remove("popup_opened");
-//     } else if (popupAdd.classList.contains("popup_opened")) {
-//       popupAdd.classList.remove("popup_opened");
-//     }
-// }
+function closePopup() {   //закрытие попапа
+    const popup = document.querySelectorAll(".popup");
+    const beClosed = popup.querySelector(".element__delete-button");
+    beClosed.addEventListener("click", () => popup.classList.remove("popup_opened"));
+}
 
 function formSubmitHandler (evt) {    //отправка формы редактирования
     evt.preventDefault();
