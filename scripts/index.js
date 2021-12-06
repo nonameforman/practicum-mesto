@@ -26,10 +26,13 @@ const initialCards = [
 ];
 
 const editButton = document.querySelector(".profile__edit-button");
-const closeButton = document.querySelector(".popup__button-close");
+const closeButtonEdit = document.querySelector("#close_edit-profile");
+const closeButtonAdd = document.querySelector("#close_add-card");
+const closeButtonFullPic = document.querySelector("#close_pic-fullscreen");
 const addButton = document.querySelector(".profile__add-button");
 const popupEdit = document.querySelector("#popup_edit-profile");
 const popupAdd = document.querySelector("#popup_add-card");
+const popupFullPic = document.querySelector("#popup_pic-fullscreen");
 const formEditElement = document.querySelector("#popup__form_edit");
 const formAddElement = document.querySelector("#popup__form_add");
 const nameInput = document.querySelector(".popup__input-box_value_name");
@@ -40,6 +43,8 @@ const nameValue = document.querySelector(".profile__name");
 const aboutValue = document.querySelector(".profile__about");
 const elementsContainer = document.querySelector(".elements__container");
 const templateElement = document.querySelector("#element");
+const imageFullScreen = document.querySelector(".popup__image");
+const imageCapture = document.querySelector(".popup__capture");
 
 function getItem(item) {    //добавление новой карточки
     const newItem = templateElement.content.cloneNode(true);
@@ -55,13 +60,21 @@ function getItem(item) {    //добавление новой карточки
     const beDeleted = newItem.querySelector(".element__delete-button");
     beDeleted.addEventListener("click", deleteCard);
 
+    const beOpenFullScreen = newItem.querySelector(".element__pic-button");
+    beOpenFullScreen.addEventListener("click", () => {
+        imageFullScreen.src = newImage.src;
+        imageFullScreen.alt = newImage.alt;
+        imageCapture.textContent = newName.textContent;
+        popupFullPic.classList.add("popup_opened");
+    })
+
     return newItem;
 }
 
 function deleteCard(evt) {    //удаление карточки
-	const targetElement = evt.target;
-	const listItem = targetElement.closest(".element");
-	listItem.remove();
+	  const targetElement = evt.target;
+	  const listItem = targetElement.closest(".element");
+	  listItem.remove();
 }
 
 function render() {   //начальный рендер карточек
@@ -83,30 +96,15 @@ function openPopupAdd() {   //открытие попапа добавления
     popupAdd.classList.add("popup_opened");
 }
 
-// нужно найти все попапы const popups = query('...');
-// затем итеративно проходишь по попапам и внутри каждого ищешь closeButton
-// затем на эту кнопку добавляешь событие клика, которое вызывает closePopup(сюда кинуть сам попап) 
-// const popups = document.querySelectorAll(".popup");
-// const closeBtn = popups.querySelectorAll(".popup__button-close");
-// closeBtn.addEventListener("click", () => popups.classList.remove("popup_opened"));
-
-// function closePopup(evt) {
-//   const targetEl = evt.target;
-//   const popupEl = targetEl.closest(".popup");
-//   popupEl.classList.remove("popup_opened");
-// }
-
-function closePopup() {   //закрытие попапа
-    const popup = document.querySelectorAll(".popup");
-    const beClosed = popup.querySelector(".element__delete-button");
-    beClosed.addEventListener("click", () => popup.classList.remove("popup_opened"));
+function closePopup(popupElement) {   //закрытие попапа
+    popupElement.classList.remove("popup_opened");
 }
 
 function formSubmitHandler (evt) {    //отправка формы редактирования
     evt.preventDefault();
     nameValue.textContent = nameInput.value;
     aboutValue.textContent = aboutInput.value;
-    closePopup()
+    closePopup(popupEdit);
 }
 
 function formAddCard (evt) {    //отправка формы добавления
@@ -118,12 +116,13 @@ function formAddCard (evt) {    //отправка формы добавлени
     elementsContainer.prepend(card);
     mestoInput.value = '';
     linkInput.value = '';
-    closePopup();
-
+    closePopup(popupAdd);
 }
 
 editButton.addEventListener("click", openPopupEdit);
-closeButton.addEventListener("click", closePopup);
+closeButtonEdit.addEventListener("click", () => closePopup(popupEdit));
 formEditElement.addEventListener("submit", formSubmitHandler);
 addButton.addEventListener("click", openPopupAdd);
+closeButtonAdd.addEventListener("click", () => closePopup(popupAdd));
 formAddElement.addEventListener("submit", formAddCard);
+closeButtonFullPic.addEventListener("click", () => closePopup(popupFullPic));

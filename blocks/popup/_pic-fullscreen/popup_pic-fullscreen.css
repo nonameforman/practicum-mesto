@@ -1,0 +1,12 @@
+.popup_pic-fullscreen {
+    grid-template-columns: 32px max-content 32px;
+    grid-template-rows: 32px max-content 32px;
+    background-color: rgba(0, 0, 0, .9);
+}
+
+@media screen and (max-width: 767px) {
+    .popup_pic-fullscreen {
+        grid-template-columns: max-content;
+        grid-template-rows: 20px max-content 20px;
+    }
+}

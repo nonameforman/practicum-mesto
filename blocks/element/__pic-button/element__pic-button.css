@@ -1,0 +1,8 @@
+.element__pic-button {
+    cursor: pointer;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    box-sizing: border-box;
+    background-color: transparent;
+}

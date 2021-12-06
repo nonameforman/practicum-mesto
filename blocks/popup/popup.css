@@ -4,13 +4,16 @@
     bottom: 0;
     left: 0;
     right: 0;
-    display: none;
+    display: grid;
     grid-template-columns: 32px 430px 32px;
     grid-template-rows: 32px max-content 32px;
     gap: 8px;
     justify-content: center;
     align-content: center;
     background-color: rgba(0, 0, 0, .5);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s ease-in;
 }
 
 @media screen and (max-width: 767px) {
