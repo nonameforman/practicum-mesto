@@ -114,6 +114,7 @@ function submitFormEdit (evt) {    //отправка формы редакти�
     nameValue.textContent = nameInput.value;
     aboutValue.textContent = aboutInput.value;
     saveButton.classList.add("popup__button_disabled");
+    saveButton.disabled = true;
     closePopup(popupEdit);
 }
 
@@ -128,6 +129,7 @@ function submitFormAdd (evt) {    //отправка формы добавлен
     linkInput.value = '';
     formAddElement.reset();
     createButton.classList.add("popup__button_disabled");
+    createButton.disabled = true;
     closePopup(popupAdd);
 }
 
