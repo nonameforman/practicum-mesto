@@ -14,6 +14,7 @@
     background-size: 32px;
     background-repeat: no-repeat;
     background-position: center;
+    z-index: 3;
 }
 
 @media screen and (max-width: 767px) {

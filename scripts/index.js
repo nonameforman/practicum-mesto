@@ -29,16 +29,19 @@ const editButton = document.querySelector(".profile__edit-button");
 const closeButtonEdit = document.querySelector("#close_edit-profile");
 const closeButtonAdd = document.querySelector("#close_add-card");
 const closeButtonFullPic = document.querySelector("#close_pic-fullscreen");
+const overlayEdit = document.querySelector("#overlay_edit-profile");
+const overlayAdd = document.querySelector("#overlay_add-card");
+const overlayFullPic = document.querySelector("#overlay_pic-fullscreen");
 const addButton = document.querySelector(".profile__add-button");
 const popupEdit = document.querySelector("#popup_edit-profile");
 const popupAdd = document.querySelector("#popup_add-card");
 const popupFullPic = document.querySelector("#popup_pic-fullscreen");
 const formEditElement = document.querySelector("#popup__form_edit");
 const formAddElement = document.querySelector("#popup__form_add");
-const nameInput = document.querySelector(".popup__input-box_value_name");
-const aboutInput = document.querySelector(".popup__input-box_value_about");
-const mestoInput = document.querySelector(".popup__input-box_value_mesto");
-const linkInput = document.querySelector(".popup__input-box_value_link");
+const nameInput = document.querySelector("#input_name");
+const aboutInput = document.querySelector("#input_about");
+const mestoInput = document.querySelector("#input_mesto");
+const linkInput = document.querySelector("#input_link");
 const nameValue = document.querySelector(".profile__name");
 const aboutValue = document.querySelector(".profile__about");
 const elementsContainer = document.querySelector(".elements__container");
@@ -88,10 +91,19 @@ render();
 
 function openPopup(popupElement) {    //открытие попапа
     popupElement.classList.add("popup_opened");
+    document.addEventListener("keydown", closePopupByEsc);
 }
 
 function closePopup(popupElement) {   //закрытие попапа
     popupElement.classList.remove("popup_opened");
+    document.removeEventListener("keydown", closePopupByEsc);
+}
+
+function closePopupByEsc(evt) {   //закрытие открытого попапа через esc
+    if (evt.key === "Escape") {
+      const openedPopup = document.querySelector(".popup_opened");
+      closePopup(openedPopup);
+    }
 }
 
 function submitFormEdit (evt) {    //отправка формы редактирования
@@ -124,3 +136,6 @@ formAddElement.addEventListener("submit", submitFormAdd);
 closeButtonEdit.addEventListener("click", () => closePopup(popupEdit));
 closeButtonAdd.addEventListener("click", () => closePopup(popupAdd));
 closeButtonFullPic.addEventListener("click", () => closePopup(popupFullPic));
+overlayEdit.addEventListener("click", () => closePopup(popupEdit));
+overlayAdd.addEventListener("click", () => closePopup(popupAdd));
+overlayFullPic.addEventListener("click", () => closePopup(popupFullPic));
