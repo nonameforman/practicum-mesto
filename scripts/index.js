@@ -48,6 +48,9 @@ const elementsContainer = document.querySelector(".elements__container");
 const templateElement = document.querySelector("#element");
 const imageFullScreen = document.querySelector(".popup__image");
 const imageCapture = document.querySelector(".popup__capture");
+const createButton = document.querySelector("#create-button");
+const saveButton = document.querySelector("#save-button");
+const popupList = document.querySelectorAll('.popup');
 
 function getItem(item) {    //добавление новой карточки
     const newItem = templateElement.content.cloneNode(true);
@@ -110,6 +113,7 @@ function submitFormEdit (evt) {    //отправка формы редакти�
     evt.preventDefault();
     nameValue.textContent = nameInput.value;
     aboutValue.textContent = aboutInput.value;
+    saveButton.classList.add("popup__button_disabled");
     closePopup(popupEdit);
 }
 
@@ -122,8 +126,25 @@ function submitFormAdd (evt) {    //отправка формы добавлен
     elementsContainer.prepend(card);
     mestoInput.value = '';
     linkInput.value = '';
+    formAddElement.reset();
+    createButton.classList.add("popup__button_disabled");
     closePopup(popupAdd);
 }
+
+const addListenersOnCloseElements = () => {    //добавляет слушатели на кнопки (оверлеи) закрытия попапов
+    popupList.forEach((popup) => {
+      popup.addEventListener('click', (evt) => {
+        if (evt.target.classList.contains('popup__overlay')) {
+          closePopup(popup)
+        }
+        if (evt.target.classList.contains('popup__button-close')) {
+          closePopup(popup)
+        }
+      })
+    })
+}
+
+addListenersOnCloseElements();
 
 editButton.addEventListener("click", () => {
     nameInput.value = nameValue.textContent.trim();
@@ -133,9 +154,11 @@ editButton.addEventListener("click", () => {
 addButton.addEventListener("click", () => openPopup(popupAdd));
 formEditElement.addEventListener("submit", submitFormEdit);
 formAddElement.addEventListener("submit", submitFormAdd);
-closeButtonEdit.addEventListener("click", () => closePopup(popupEdit));
-closeButtonAdd.addEventListener("click", () => closePopup(popupAdd));
-closeButtonFullPic.addEventListener("click", () => closePopup(popupFullPic));
-overlayEdit.addEventListener("click", () => closePopup(popupEdit));
-overlayAdd.addEventListener("click", () => closePopup(popupAdd));
-overlayFullPic.addEventListener("click", () => closePopup(popupFullPic));
+
+// --------ФУНКЦИИ ЗАКРЫТИЯ ПОПАПОВ (СТАРЫЕ)
+// closeButtonEdit.addEventListener("click", () => closePopup(popupEdit));
+// closeButtonAdd.addEventListener("click", () => closePopup(popupAdd));
+// closeButtonFullPic.addEventListener("click", () => closePopup(popupFullPic));
+// overlayEdit.addEventListener("click", () => closePopup(popupEdit));
+// overlayAdd.addEventListener("click", () => closePopup(popupAdd));
+// overlayFullPic.addEventListener("click", () => closePopup(popupFullPic));
