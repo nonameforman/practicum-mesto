@@ -1,3 +1,6 @@
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
+
 const initialCards = [
   {
     name: 'Архыз',
@@ -52,42 +55,50 @@ const createButton = document.querySelector("#create-button");
 const saveButton = document.querySelector("#save-button");
 const popupList = document.querySelectorAll('.popup');
 
-function getItem(item) {    //добавление новой карточки
-    const newItem = templateElement.content.cloneNode(true);
-    const newName = newItem.querySelector(".element__name");
-    newName.textContent = item.name;
-    const newImage = newItem.querySelector(".element__pic");
-    newImage.src = item.link;
-    newImage.alt = item.name + ".";
+// function getItem(item) {    //добавление новой карточки
+//     const newItem = templateElement.content.cloneNode(true);
+//     const newName = newItem.querySelector(".element__name");
+//     newName.textContent = item.name;
+//     const newImage = newItem.querySelector(".element__pic");
+//     newImage.src = item.link;
+//     newImage.alt = item.name + ".";
 
-    const beLiked = newItem.querySelector(".element__button");
-	  beLiked.addEventListener("click", () => beLiked.classList.toggle("element__button_active"));
+//     const beLiked = newItem.querySelector(".element__button");
+// 	  beLiked.addEventListener("click", () => beLiked.classList.toggle("element__button_active"));
 
-    const beDeleted = newItem.querySelector(".element__delete-button");
-    beDeleted.addEventListener("click", deleteCard);
+//     const beDeleted = newItem.querySelector(".element__delete-button");
+//     beDeleted.addEventListener("click", deleteCard);
 
-    const beOpenFullScreen = newItem.querySelector(".element__pic-button");
-    beOpenFullScreen.addEventListener("click", () => {
-        imageFullScreen.src = newImage.src;
-        imageFullScreen.alt = newImage.alt;
-        imageCapture.textContent = newName.textContent;
-        openPopup(popupFullPic);
-    })
+//     const beOpenFullScreen = newItem.querySelector(".element__pic-button");
+//     beOpenFullScreen.addEventListener("click", () => {
+//         imageFullScreen.src = newImage.src;
+//         imageFullScreen.alt = newImage.alt;
+//         imageCapture.textContent = newName.textContent;
+//         openPopup(popupFullPic);
+//     })
 
-    return newItem;
-}
+//     return newItem;
+// }
 
-function deleteCard(evt) {    //удаление карточки
-	  const targetElement = evt.target;
-	  const listItem = targetElement.closest(".element");
-	  listItem.remove();
-}
+// function deleteCard(evt) {    //удаление карточки
+// 	  const targetElement = evt.target;
+// 	  const listItem = targetElement.closest(".element");
+// 	  listItem.remove();
+// }
 
-function render() {   //начальный рендер карточек
-    const html = initialCards.map(function(item){
-        return getItem(item);
-    });
-    elementsContainer.append(...html);
+// function render() {   //начальный рендер карточек
+//     const html = initialCards.map(function(item){
+//         return getItem(item);
+//     });
+//     elementsContainer.append(...html);
+// }
+
+function render() {
+  const html = initialCards.map((item) => {
+    const newItem = new Card(".template", item.name, item.link);
+      return newItem.getView();
+  });
+  elementsContainer.append(...html);
 }
 
 render();
@@ -157,10 +168,10 @@ addButton.addEventListener("click", () => openPopup(popupAdd));
 formEditElement.addEventListener("submit", submitFormEdit);
 formAddElement.addEventListener("submit", submitFormAdd);
 
-// --------ФУНКЦИИ ЗАКРЫТИЯ ПОПАПОВ (СТАРЫЕ)
-// closeButtonEdit.addEventListener("click", () => closePopup(popupEdit));
-// closeButtonAdd.addEventListener("click", () => closePopup(popupAdd));
-// closeButtonFullPic.addEventListener("click", () => closePopup(popupFullPic));
-// overlayEdit.addEventListener("click", () => closePopup(popupEdit));
-// overlayAdd.addEventListener("click", () => closePopup(popupAdd));
-// overlayFullPic.addEventListener("click", () => closePopup(popupFullPic));
+/*--------ФУНКЦИИ ЗАКРЫТИЯ ПОПАПОВ (СТАРЫЕ)
+closeButtonEdit.addEventListener("click", () => closePopup(popupEdit));
+closeButtonAdd.addEventListener("click", () => closePopup(popupAdd));
+closeButtonFullPic.addEventListener("click", () => closePopup(popupFullPic));
+overlayEdit.addEventListener("click", () => closePopup(popupEdit));
+overlayAdd.addEventListener("click", () => closePopup(popupAdd));
+overlayFullPic.addEventListener("click", () => closePopup(popupFullPic));*/
