@@ -3,7 +3,6 @@ class Card {
         this._selector = selector;
         this._name = name;
         this._link = link;
-        // this._alt = alt;
     }
 
     _getItem() {
@@ -26,11 +25,15 @@ class Card {
         this._element = this._getItem();
         this._element.querySelector(".element__name").textContent = this._name;
         this._element.querySelector(".element__pic").src = this._link;
-        //
+        this._setEventListeners();
         return this._element;
     }
 
-    // _setEventListeners() {}
+    _setEventListeners() {
+        this._element.querySelector(".element__button").addEventListener("click", _likeCard);
+        this._element.querySelector(".element__delete-button").addEventListener("click", _deleteCard);
+        //
+    }
 }
 
 export default Card;
