@@ -21,7 +21,7 @@ class FormValidator {
         const errorMessage = this._formSelector.querySelector(`#${input.id}-error`);
         errorMessage.textContent = "";
         errorMessage.classList.remove(this._errorClass);
-        inputElement.classList.remove(this._inputErrorClass);
+        input.classList.remove(this._inputErrorClass);
     }
 
     _checkInputValid = (input) => {
@@ -50,8 +50,8 @@ class FormValidator {
         this._toggleButtonError();
         this._inputList.forEach((input) => {
           input.addEventListener("input", () => {
-            this._checkInputValid();
-            this._toggleButtonError(input);
+            this._checkInputValid(input);
+            this._toggleButtonError();
           })
         })
     }
