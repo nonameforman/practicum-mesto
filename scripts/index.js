@@ -32,20 +32,10 @@ const saveButton = document.querySelector("#save-button");
 const popupList = document.querySelectorAll('.popup');
 const popupFullPic = document.querySelector("#popup_pic-fullscreen");
 
-// const cardList = new Section({
-//     items: initialCards,
-//     renderer: 
-// })
-
 const formEditValidate = new FormValidator(enableValidation, formEditElement);
 const formAddValidate = new FormValidator(enableValidation, formAddElement);
 formEditValidate.enableValidation();
 formAddValidate.enableValidation();
-
-// function createCard(item) {   //создание карточки
-//     const card = new Card("#element", item.name, item.link, openCard);
-//     return card.getView();
-// }
 
 function createCard({name, link}) {   //создание карточки
   const openCard = () => {
@@ -55,54 +45,41 @@ function createCard({name, link}) {   //создание карточки
   return card.getView();
 }
 
-const renderedCards = new Section({
+const renderedCards = new Section({   //начальный рендер карточек
   items: initialCards,
   renderer: (item) => {
     const newCard = createCard(item);
     renderedCards.addItem(newCard);
   }
-}, ".element")
+}, ".elements__container")
 
 renderedCards.renderItems();
 
 const popupFullPicture = new PopupWithImage ("#popup_pic-fullscreen");
+popupFullPicture.setEventListeners();
 
-// initialCards.map((item) => {  //начальный рендер карточек
-//     elementsContainer.append(createCard(item));
-// })
+const userInfoForm = new UserInfo({nameValue, aboutValue});
+//const popupUserInfo = new PopupWithForm(popupEdit, () => {})
 
-// function openCard(name, link) {   //открытие полноразмерного изображения
-//     popupFullPic.querySelector(".popup__image").src = link;
-//     popupFullPic.querySelector(".popup__image").alt = name + ".";
-//     popupFullPic.querySelector(".popup__capture").textContent = name;
-//     openPopup(popupFullPic);
+function submitFormEdit () {
+    const newNameValue = nameInput.value;
+    const newAboutValue = aboutInput.value;
+    userInfoForm.setUserInfo(newNameValue, newAboutValue)
+    // saveButton.classList.add("popup__button_disabled");
+    // saveButton.disabled = true;
+    popupEditForm.closePopup();
+}
+
+const popupEditForm = new PopupWithForm(popupEdit, submitFormEdit);
+popupEditForm.setEventListeners();
+// function submitFormEdit (evt) {    //отправка формы редактирования
+//     evt.preventDefault();
+//     nameValue.textContent = nameInput.value;
+//     aboutValue.textContent = aboutInput.value;
+//     saveButton.classList.add("popup__button_disabled");
+//     saveButton.disabled = true;
+//     closePopup(popupEdit);
 // }
-
-function openPopup(popupElement) {    //открытие попапа
-    popupElement.classList.add("popup_opened");
-    document.addEventListener("keydown", closePopupByEsc);
-}
-
-function closePopup(popupElement) {   //закрытие попапа
-    popupElement.classList.remove("popup_opened");
-    document.removeEventListener("keydown", closePopupByEsc);
-}
-
-function closePopupByEsc(evt) {   //закрытие открытого попапа через esc
-    if (evt.key === "Escape") {
-      const openedPopup = document.querySelector(".popup_opened");
-      closePopup(openedPopup);
-    }
-}
-
-function submitFormEdit (evt) {    //отправка формы редактирования
-    evt.preventDefault();
-    nameValue.textContent = nameInput.value;
-    aboutValue.textContent = aboutInput.value;
-    saveButton.classList.add("popup__button_disabled");
-    saveButton.disabled = true;
-    closePopup(popupEdit);
-}
 
 function submitFormAdd (evt) {    //отправка формы добавления
     evt.preventDefault();
@@ -116,21 +93,6 @@ function submitFormAdd (evt) {    //отправка формы добавлен
     createButton.disabled = true;
     closePopup(popupAdd);
 }
-
-const addListenersOnCloseElements = () => {    //добавляет слушатели на кнопки (оверлеи) закрытия попапов
-    popupList.forEach((popup) => {
-      popup.addEventListener('click', (evt) => {
-        if (evt.target.classList.contains('popup__overlay')) {
-          closePopup(popup)
-        }
-        if (evt.target.classList.contains('popup__button-close')) {
-          closePopup(popup)
-        }
-      })
-    })
-}
-
-addListenersOnCloseElements();
 
 editButton.addEventListener("click", () => {
     nameInput.value = nameValue.textContent.trim();
