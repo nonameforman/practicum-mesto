@@ -1,5 +1,9 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
+import PopupWithImage from "./PopupWithImage.js";
+import PopupWithForm from "./PopupWithForm.js";
+import Section from "./Section.js";
+import UserInfo from "./UserInfo.js";
 import { initialCards } from "./constants.js";
 
 const enableValidation = {
@@ -28,26 +32,51 @@ const saveButton = document.querySelector("#save-button");
 const popupList = document.querySelectorAll('.popup');
 const popupFullPic = document.querySelector("#popup_pic-fullscreen");
 
+// const cardList = new Section({
+//     items: initialCards,
+//     renderer: 
+// })
+
 const formEditValidate = new FormValidator(enableValidation, formEditElement);
 const formAddValidate = new FormValidator(enableValidation, formAddElement);
 formEditValidate.enableValidation();
 formAddValidate.enableValidation();
 
-function createCard(item) {   //создание карточки
-    const card = new Card("#element", item.name, item.link, openCard);
-    return card.getView();
+// function createCard(item) {   //создание карточки
+//     const card = new Card("#element", item.name, item.link, openCard);
+//     return card.getView();
+// }
+
+function createCard({name, link}) {   //создание карточки
+  const openCard = () => {
+    popupFullPicture.openPopup(name, link);
+  }
+  const card = new Card("#element", name, link, openCard);
+  return card.getView();
 }
 
-initialCards.map((item) => {  //начальный рендер карточек
-    elementsContainer.append(createCard(item));
-})
+const renderedCards = new Section({
+  items: initialCards,
+  renderer: (item) => {
+    const newCard = createCard(item);
+    renderedCards.addItem(newCard);
+  }
+}, ".element")
 
-function openCard(name, link) {   //открытие полноразмерного изображения
-    popupFullPic.querySelector(".popup__image").src = link;
-    popupFullPic.querySelector(".popup__image").alt = name + ".";
-    popupFullPic.querySelector(".popup__capture").textContent = name;
-    openPopup(popupFullPic);
-}
+renderedCards.renderItems();
+
+const popupFullPicture = new PopupWithImage ("#popup_pic-fullscreen");
+
+// initialCards.map((item) => {  //начальный рендер карточек
+//     elementsContainer.append(createCard(item));
+// })
+
+// function openCard(name, link) {   //открытие полноразмерного изображения
+//     popupFullPic.querySelector(".popup__image").src = link;
+//     popupFullPic.querySelector(".popup__image").alt = name + ".";
+//     popupFullPic.querySelector(".popup__capture").textContent = name;
+//     openPopup(popupFullPic);
+// }
 
 function openPopup(popupElement) {    //открытие попапа
     popupElement.classList.add("popup_opened");
