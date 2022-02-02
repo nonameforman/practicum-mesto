@@ -3,7 +3,7 @@ import FormValidator from "./FormValidator.js";
 import PopupWithImage from "./PopupWithImage.js";
 import PopupWithForm from "./PopupWithForm.js";
 import Section from "./Section.js";
-import UserInfo from "./UserInfo.js";
+import UserInfo from "./UserInfo.js"
 import { initialCards } from "./constants.js";
 
 const enableValidation = {
@@ -101,20 +101,10 @@ function submitFormAdd (evt) {    //отправка формы добавлен
 // });
 editButton.addEventListener("click", () => {
       const abc = userInfoForm.getUserInfo();
-      nameInput.value = abc.name;
-      aboutInput.value = abc.about;
+      // nameInput.value = abc.name;
+      // aboutInput.value = abc.about;
       popupEditForm.openPopup();
 });
 addButton.addEventListener("click", () => openPopup(popupAdd));
 formEditElement.addEventListener("submit", submitFormEdit);
 formAddElement.addEventListener("submit", submitFormAdd);
-
-// editLink.addEventListener('click', function () {
-//   const currentUserForm = userInfoForm.getUserInfo();
-//   nameInput.value = currentUserForm.username;
-//   jobInput.value = currentUserForm.job;
-
-//   popupUserInfo.openPopup();
-
-//   formValidators[ profileForm.getAttribute('name') ].resetValidation();
-// });
