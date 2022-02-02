@@ -59,7 +59,6 @@ const popupFullPicture = new PopupWithImage ("#popup_pic-fullscreen");
 popupFullPicture.setEventListeners();
 
 const userInfoForm = new UserInfo({nameValue, aboutValue});
-//const popupUserInfo = new PopupWithForm(popupEdit, () => {})
 
 function submitFormEdit () {
     const newNameValue = nameInput.value;
@@ -70,8 +69,9 @@ function submitFormEdit () {
     popupEditForm.closePopup();
 }
 
-const popupEditForm = new PopupWithForm(popupEdit, submitFormEdit);
+const popupEditForm = new PopupWithForm("#popup_edit-profile", submitFormEdit);
 popupEditForm.setEventListeners();
+
 // function submitFormEdit (evt) {    //отправка формы редактирования
 //     evt.preventDefault();
 //     nameValue.textContent = nameInput.value;
@@ -94,11 +94,27 @@ function submitFormAdd (evt) {    //отправка формы добавлен
     closePopup(popupAdd);
 }
 
+// editButton.addEventListener("click", () => {
+//     nameInput.value = nameValue.textContent.trim();
+//     aboutInput.value = aboutValue.textContent.trim();
+//     popupEditForm.openPopup();
+// });
 editButton.addEventListener("click", () => {
-    nameInput.value = nameValue.textContent.trim();
-    aboutInput.value = aboutValue.textContent.trim();
-    openPopup(popupEdit);
+      const abc = userInfoForm.getUserInfo();
+      nameInput.value = abc.name;
+      aboutInput.value = abc.about;
+      popupEditForm.openPopup();
 });
 addButton.addEventListener("click", () => openPopup(popupAdd));
 formEditElement.addEventListener("submit", submitFormEdit);
 formAddElement.addEventListener("submit", submitFormAdd);
+
+// editLink.addEventListener('click', function () {
+//   const currentUserForm = userInfoForm.getUserInfo();
+//   nameInput.value = currentUserForm.username;
+//   jobInput.value = currentUserForm.job;
+
+//   popupUserInfo.openPopup();
+
+//   formValidators[ profileForm.getAttribute('name') ].resetValidation();
+// });
