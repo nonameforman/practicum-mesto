@@ -4,8 +4,7 @@
   "description": "____ Функционально сайт предлагает нам возможность сохранять воспоминания о местах, которые Мы посетили! Сможем делиться фотографиями, а так же ставить \"лайки\", удалять и добавлять карточки=) мы заслужили лайка...   ____ Работа создана с применением таких технологих как: адаптивная вёрстка, медиазапросы, javascript - функции и переменные, слушатели, методы работы с элементами DOM-дерева.   CСЫЛКА НА GIT PAGES:   https://nonameforman.github.io/mesto/   ____ :white_check_mark: Кнопки наконец-то начали работать! УАУ   :white_check_mark: Корректное отображение элементов на различных экранах (методикой desktop first)   :black_square_button: Доразобраться с работой js, пока тяжко х2...",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf dist && webpack",
+    "build": "webpack --mode production",
     "dev": "webpack serve"
   },
   "repository": {
@@ -21,7 +20,14 @@
   "devDependencies": {
     "@babel/core": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
+    "autoprefixer": "^10.4.2",
     "babel-loader": "^8.2.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.6.0",
+    "cssnano": "^5.0.16",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.5.3",
+    "postcss-loader": "^6.2.1",
     "webpack": "^5.68.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4"
