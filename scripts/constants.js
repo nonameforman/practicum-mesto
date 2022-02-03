@@ -25,4 +25,22 @@ const initialCards = [
     }
   ];
 
-export {initialCards};
+const enableValidation = {
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+};
+
+const editButton = document.querySelector(".profile__edit-button");
+const addButton = document.querySelector(".profile__add-button");
+const formEditElement = document.querySelector("#popup__form_edit");
+const formAddElement = document.querySelector("#popup__form_add");
+const nameInput = document.querySelector("#input_name");
+const aboutInput = document.querySelector("#input_about");
+const nameValue = document.querySelector(".profile__name");
+const aboutValue = document.querySelector(".profile__about");
+const elementsContainer = document.querySelector(".elements__container");
+
+export {initialCards, enableValidation, editButton, addButton, formEditElement, formAddElement, nameInput, aboutInput, nameValue, aboutValue, elementsContainer};
