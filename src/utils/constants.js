@@ -41,6 +41,5 @@ const nameInput = document.querySelector("#input_name");
 const aboutInput = document.querySelector("#input_about");
 const nameValue = document.querySelector(".profile__name");
 const aboutValue = document.querySelector(".profile__about");
-const elementsContainer = document.querySelector(".elements__container");
 
-export {initialCards, enableValidation, editButton, addButton, formEditElement, formAddElement, nameInput, aboutInput, nameValue, aboutValue, elementsContainer};
+export {initialCards, enableValidation, editButton, addButton, formEditElement, formAddElement, nameInput, aboutInput, nameValue, aboutValue};

@@ -15,7 +15,7 @@ class Card {
     }
 
     _likeCard = () => {
-        this._element.querySelector(".element__button").classList.toggle("element__button_active");
+        this._likeButton.classList.toggle("element__button_active");
     }
 
     _deleteCard = () => {
@@ -25,18 +25,19 @@ class Card {
 
     getView() {
         this._element = this._getItem();
+        this._likeButton = this._element.querySelector(".element__button");
         this._element.querySelector(".element__name").textContent = this._name;
-        const elementPic = this._element.querySelector(".element__pic");
-        elementPic.alt = this._name + ".";
-        elementPic.src = this._link;
+        this._elementPic = this._element.querySelector(".element__pic");
+        this._elementPic.alt = this._name + ".";
+        this._elementPic.src = this._link;
         this._setEventListeners();
         return this._element;
     }
 
     _setEventListeners() {
-        this._element.querySelector(".element__button").addEventListener("click", this._likeCard);
+        this._likeButton.addEventListener("click", this._likeCard);
         this._element.querySelector(".element__delete-button").addEventListener("click", this._deleteCard);
-        this._element.querySelector(".element__pic").addEventListener("click", () => {
+        this._elementPic.addEventListener("click", () => {
             this._openCard(this._name, this._link);
         });
     }

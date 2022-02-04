@@ -27,9 +27,6 @@ export default class PopupWithForm extends Popup {
 
     closePopup() {
         super.closePopup();
-        const submitButton = this._popupElement.querySelector(".popup__button")
-        submitButton.classList.add("popup__button_disabled");
-        submitButton.disabled = true;
         this._form.reset();
     }
 }
