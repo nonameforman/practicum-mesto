@@ -15,7 +15,10 @@
         <main class="content">
             <section class="profile">
                 <div class="profile__container">
-                    <img class="profile__avatar" src="<%=require('./images/avatar.png')%>" alt="Аватар.">
+                    <button class="profile__edit-image" type="button" aria-label="Изменить аватар">
+                        <img class="profile__avatar" src="<%=require('./images/avatar.png')%>" alt="Аватар.">
+                    </button>
+                    <!-- <img class="profile__avatar" src="<%=require('./images/avatar.png')%>" alt="Аватар."> -->
                     <div class="profile__info">
                         <h1 class="profile__name">
                             Жак-Ив Кусто
@@ -69,6 +72,34 @@
             <button class="popup__button-close button-hover" id="close_add-card" type="button" aria-label="Закрыть"></button>
             <div class="popup__overlay" id="overlay_add-card"></div>
         </div>
+        <!-- popup delete -->
+        <div class="popup" id="popup_confirm-delete">
+            <div class="popup__container">
+                <h2 class="popup__title">
+                    Вы уверены?
+                </h2>
+                <form class="popup__form" id="popup__form_confirm-delete" name="delete">
+                    <button class="popup__button" id="delete-button" type="submit">Да</button>
+                </form>
+            </div>
+            <button class="popup__button-close button-hover" id="close_confirm-delete" type="button" aria-label="Закрыть"></button>
+            <div class="popup__overlay" id="overlay_confirm-delete"></div>
+        </div>
+        <!-- popup avatar -->
+        <div class="popup" id="popup_edit-avatar">
+            <div class="popup__container">
+                <h2 class="popup__title">
+                    Обновить аватар
+                </h2>
+                <form class="popup__form" id="popup__form_edit-avatar" name="edit-avatar">
+                    <input class="popup__input" id="input_link" type="url" name="link" value="" placeholder="Ссылка на новый аватар" required>
+                    <span class="popup__error" id="input_link-error"></span>
+                    <button class="popup__button" id="create-button" type="submit">Сохранить</button>
+                </form>
+            </div>
+            <button class="popup__button-close button-hover" id="close_edit-avatar" type="button" aria-label="Закрыть"></button>
+            <div class="popup__overlay" id="overlay_edit-avatar"></div>
+        </div>
         <div class="popup popup_pic-fullscreen" id="popup_pic-fullscreen">
             <img class="popup__image" src="https://ampravda.ru/files/articles-2/68895/q640b5ym738c-1.jpg" alt="Новобурейский">
             <button class="popup__button-close button-hover" id="close_pic-fullscreen" type="button" aria-label="Закрыть"></button>
@@ -81,7 +112,12 @@
                 <button class="element__delete-button" type="button" aria-label="Удалить"></button>
                 <div class="element__describtion">
                     <h2 class="element__name"></h2>
-                    <button class="element__button" type="button" aria-label="Нравится"></button>
+                    <div class="element__like-place">
+                        <button class="element__button" type="button" aria-label="Нравится"></button>
+                        <p class="element__like-counter">
+                            0
+                        </p>
+                    </div>
                 </div>
             </li>
         </template>
