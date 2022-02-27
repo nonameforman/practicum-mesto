@@ -41,5 +41,8 @@ const nameInput = document.querySelector("#input_name");
 const aboutInput = document.querySelector("#input_about");
 const nameValue = document.querySelector(".profile__name");
 const aboutValue = document.querySelector(".profile__about");
+const avatar = document.querySelector(".profile__avatar");
+const editAvatarButton = document.querySelector(".profile__edit-image");
+const formEditAvatar = document.querySelector("#popup_edit-avatar");
 
-export {initialCards, enableValidation, editButton, addButton, formEditElement, formAddElement, nameInput, aboutInput, nameValue, aboutValue};
+export {initialCards, enableValidation, editButton, addButton, formEditElement, formAddElement, nameInput, aboutInput, nameValue, aboutValue, avatar, editAvatarButton, formEditAvatar};
