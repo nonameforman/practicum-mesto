@@ -21,7 +21,7 @@ class Card {
         .cloneNode(true);
     }
 
-    like (data) {
+    like(data) {
         this._likeCounter.textContent = data.likes.length;
         this._isLiked = !this._isLiked;
         if (this._isLiked) { 
@@ -33,6 +33,10 @@ class Card {
 
     getIsLiked() {
         return this._isLiked;
+    }
+
+    getIdCard() {
+        return this._idCard;
     }
 
     delete() {
@@ -61,8 +65,12 @@ class Card {
     }
 
     _setEventListeners() {
-        this._likeButton.addEventListener("click", this._likeCard);
-        this._deleteButton.addEventListener("click", this._deleteCard);
+        this._likeButton.addEventListener("click", () => {
+            this._likeCard(this);
+        });
+        this._deleteButton.addEventListener("click", () => {
+            this._deleteCard(this);
+        });
         this._elementPic.addEventListener("click", () => {
             this._openCard({name: this._name, link: this._link});
         });

@@ -1,30 +1,3 @@
-const initialCards = [
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-  ];
-
 const enableValidation = {
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__button',
@@ -44,5 +17,10 @@ const aboutValue = document.querySelector(".profile__about");
 const avatar = document.querySelector(".profile__avatar");
 const editAvatarButton = document.querySelector(".profile__edit-image");
 const formEditAvatar = document.querySelector("#popup_edit-avatar");
+const editSubmitButton = document.querySelector("#save-button");
+const addSubmitButton = document.querySelector("#create-button");
+const editAvatarSubmitButton = document.querySelector("#save-avatar-button");
+const deleteSubmitButton = document.querySelector("#delete-button");
 
-export {initialCards, enableValidation, editButton, addButton, formEditElement, formAddElement, nameInput, aboutInput, nameValue, aboutValue, avatar, editAvatarButton, formEditAvatar};
+
+export {enableValidation, editButton, addButton, formEditElement, formAddElement, nameInput, aboutInput, nameValue, aboutValue, avatar, editAvatarButton, formEditAvatar, editSubmitButton, addSubmitButton, editAvatarSubmitButton, deleteSubmitButton};

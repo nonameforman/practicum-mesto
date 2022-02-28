@@ -73,7 +73,7 @@ export default class Api {
         .then((res) => this._handleResponse(res))
     }
 
-    likeCard(idCard) {
+    putLikeCard(idCard) {
         return fetch(`${this._address}/cards/${idCard}/likes`, {
             method: 'PUT',
             headers: {
@@ -84,7 +84,7 @@ export default class Api {
         .then((res) => this._handleResponse(res))
     }
 
-    unlikeCard(idCard) {
+    deleteLikeCard(idCard) {
         return fetch(`${this._address}/cards/${idCard}/likes`, {
             method: 'DELETE',
             headers: {
@@ -95,7 +95,7 @@ export default class Api {
         .then((res) => this._handleResponse(res))
     }
 
-    deleteCard(idCard) {
+    removeCard(idCard) {
         return fetch(`${this._address}/cards/${idCard}`, {
             method: 'DELETE',
             headers: {
