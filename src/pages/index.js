@@ -6,7 +6,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 import Section from "../components/Section.js";
-import UserInfo from "../components/UserInfo.js"
+import UserInfo from "../components/UserInfo.js";
 import {enableValidation, editButton, addButton, formEditElement, formAddElement, nameInput, aboutInput, nameValue, aboutValue, avatar, editAvatarButton, formEditAvatar, editSubmitButton, addSubmitButton, editAvatarSubmitButton, deleteSubmitButton} from "../utils/constants.js";
 import Api from "../components/Api";
 
