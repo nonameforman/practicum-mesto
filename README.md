@@ -8,4 +8,3 @@ https://nonameforman.github.io/mesto/
 ____
 :white_check_mark: Кнопки наконец-то начали работать! УАУ  
 :white_check_mark: Корректное отображение элементов на различных экранах (методикой desktop first)  
-:black_square_button: Доразобраться с работой js, пока тяжко х2...
